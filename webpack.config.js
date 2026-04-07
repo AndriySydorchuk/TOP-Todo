@@ -12,5 +12,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html"
         }),
-    ]
+    ],
+    devtool: "eval-source-map",
+    devServer: {
+        watchFiles: ["./src/index.html"]
+    }
 }
