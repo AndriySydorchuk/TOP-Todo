@@ -16,5 +16,13 @@ module.exports = {
     devtool: "eval-source-map",
     devServer: {
         watchFiles: ["./src/index.html"]
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
 }
