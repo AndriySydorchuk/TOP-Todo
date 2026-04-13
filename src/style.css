@@ -1,6 +1,7 @@
 :root {
     --background-color-primary: #1F1F1F;
     --background-color-secondary: #262626;
+    --background-color-tertiary: #d04348;
 }
 
 * {
@@ -22,4 +23,9 @@ body {
 
 .sidebar {
     background-color: var(--background-color-secondary);
+}
+
+.main .addtask-btn {
+    color: #fff;
+    background-color: var(--background-color-tertiary);
 }
