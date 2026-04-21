@@ -52,6 +52,8 @@ class DOMHandler {
         descrInput.placeholder = "Description";
 
         inputSection.append(titleInput, descrInput);
+
+        return inputSection;
     }
 }
 
