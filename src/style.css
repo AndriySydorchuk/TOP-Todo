@@ -1,11 +1,15 @@
 :root {
-    --background-color-primary: #1F1F1F;
-    --background-color-secondary: #262626;
-    --background-color-tertiary: #d04348;
-    --background-color-tertiary-hover: #d05f63;
-    --hover-color: #7746403d;
+    --background-main: #1F1F1F;
+    --background-sidebar: #262626;
+    --background-btn: #d04348;
+
+    --hover-btn: #d05f63;
+    --hover-btn-secondary: #363636;
+    --hover-nav-item: #7746403d;
+
     --selected-item-font: #f07f75;
 
+    --border-primary: #3d3d3d;
 }
 
 * {
@@ -22,17 +26,17 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
-    background-color: var(--background-color-primary);
+    background-color: var(--background-main);
 
 }
 
 .sidebar {
-    background-color: var(--background-color-secondary);
+    background-color: var(--background-sidebar);
 }
 
 .main .addtask-btn {
     color: #fff;
-    background-color: var(--background-color-tertiary);
+    background-color: var(--background-btn);
 }
 
 nav {
@@ -59,7 +63,7 @@ nav {
 .nav__list-item:hover,
 .projects__list-item:hover,
 .projects__list-title:hover {
-    background-color: var(--hover-color);
+    background-color: var(--hover-nav-item);
 }
 
 .projects__list-title {
@@ -123,13 +127,57 @@ nav {
 }
 
 .addtask-btn:hover {
-    background-color: var(--background-color-tertiary-hover);
+    background-color: var(--hover-btn);
 }
 
 .list-item-active {
-    background-color: var(--background-color-tertiary-hover);
+    background-color: var(--hover-btn);
 }
 
 .list-item-active:hover {
-    background-color: var(--background-color-tertiary-hover);
+    background-color: var(--hover-btn);
+}
+
+.container__addtask {
+    border: 1px solid var(--border-primary);
+    width: 800px;
+    height: 200px;
+    justify-self: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section__input {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    justify-content: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.section__input-title {
+    background-color: var(--background-main);
+    border: 0;
+    font-weight: bold;
+}
+
+.section__input-title:focus,
+.section__input-descr:focus {
+    outline: none;
+}
+
+.section__input-descr {
+    background-color: var(--background-main);
+    border: 0;
+}
+
+.section__input-attr {
+    align-self: start;
+    margin-top: 5px;
+}
+
+.hidden {
+    display: none;
 }
