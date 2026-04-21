@@ -181,3 +181,18 @@ nav {
 .hidden {
     display: none;
 }
+
+.section__input-attr-date {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 5px 10px;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.section__input-attr-date:hover {
+    background-color: var(--hover-btn-secondary);
+}
