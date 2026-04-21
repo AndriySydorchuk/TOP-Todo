@@ -9,7 +9,7 @@ class DOMHandler {
 
     showNewTaskForm() {
         const addTaskBtn = document.querySelector(".addtask-btn");
-        addTaskBtn.addEventListener("click", this.addTask);
+        addTaskBtn.addEventListener("click", this.createNewTaskForm);
     }
 
     createElement(tagName, className) {
@@ -22,7 +22,7 @@ class DOMHandler {
         document.querySelector(`.${className}`).classList.toggle("hidden");
     }
 
-    addTask = () => {
+    createNewTaskForm = () => {
         //clear inital content
         this.toggleElement("empty__state");
 
@@ -30,15 +30,7 @@ class DOMHandler {
         const container = this.createElement("div", "container__addtask");
 
         //upper input section
-        const inputSection = this.createElement("div", "section__input");
-
-        const titleInput = this.createElement("input", "section__input-title");
-        titleInput.placeholder = "Lorem ipsum dolor sit amet, consectetur";
-
-        const descrInput = this.createElement("input", "section__input-descr");
-        descrInput.placeholder = "Description";
-
-        inputSection.append(titleInput, descrInput);
+        const inputSection = this.createInputSection();
 
         //attributes
         const inputAttributesSection = this.createElement("div", "section__input-attr");
@@ -48,6 +40,18 @@ class DOMHandler {
         container.append(inputSection);
 
         document.querySelector(".main").append(container);
+    }
+
+    createInputSection() {
+        const inputSection = this.createElement("div", "section__input");
+
+        const titleInput = this.createElement("input", "section__input-title");
+        titleInput.placeholder = "Lorem ipsum dolor sit amet, consectetur";
+
+        const descrInput = this.createElement("input", "section__input-descr");
+        descrInput.placeholder = "Description";
+
+        inputSection.append(titleInput, descrInput);
     }
 }
 
