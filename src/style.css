@@ -185,8 +185,8 @@ nav {
     display: none;
 }
 
-.section__input-attr-date,
-.section__input-attr-priority {
+.section__input-attr.date,
+.section__input-attr.priority {
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -197,7 +197,7 @@ nav {
     cursor: pointer;
 }
 
-.section__input-attr-date:hover,
-.section__input-attr-priority:hover {
+.section__input-attr.date:hover,
+.section__input-attr.priority:hover {
     background-color: var(--hover-btn-secondary);
 }
