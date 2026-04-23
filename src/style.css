@@ -41,7 +41,7 @@ body {
 
 nav {
     font-size: 14px;
-    padding: 30px 10px 0 15px;
+    padding: 10px 10px 0 15px;
 }
 
 .nav__list-item,
@@ -72,6 +72,7 @@ nav {
     font-size: 16px;
     cursor: pointer;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .main {
@@ -200,4 +201,24 @@ nav {
 .section__input-attr.date:hover,
 .section__input-attr.priority:hover {
     background-color: var(--hover-btn-secondary);
+}
+
+.sidebar-newtask-btn {
+    background-color: var(--background-sidebar);
+    color: var(--background-btn);
+    border: 0px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    gap: 6px;
+    cursor: pointer;
+    width: 185.83px;
+    border-radius: 5px;
+    margin: 10px 10px 0px 15px;
+}
+
+.sidebar-newtask-btn:hover {
+    background-color: var(--hover-nav-item);
 }
