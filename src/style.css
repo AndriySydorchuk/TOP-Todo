@@ -277,3 +277,24 @@ nav {
     opacity: 1;
     pointer-events: all;
 }
+
+.section__input-attr.date {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.section__input-attr.date-input {
+    background-color: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+    padding: 2px 4px;
+    position: absolute;
+    bottom: -30px;
+    left: -10px;
+}
+
+.section__input-attr.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}

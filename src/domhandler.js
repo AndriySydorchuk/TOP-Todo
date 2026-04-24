@@ -59,7 +59,25 @@ class DOMHandler {
     createInputAttrSection(parent) {
         const inputAttrSection = this.createElement("div", "section__input-attr");
 
-        const date = this.createAttr("date", Icons.calendar, "Date", inputAttrSection);
+        const date = this.createElement("span", "section__input-attr date");
+        date.innerHTML = `${Icons.calendar}Date`;
+
+        const dateInput = this.createElement("input", "section__input-attr date-input");
+        dateInput.type = "date";
+        dateInput.classList.add("hidden");
+        date.append(dateInput);
+
+        date.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dateInput.classList.remove("hidden");
+        });
+
+        document.body.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dateInput.classList.add("hidden");
+        })
+
+        inputAttrSection.append(date);
 
         const priority = this.createAttr("priority", Icons.priority, "Priority", inputAttrSection);
 
