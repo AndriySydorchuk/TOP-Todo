@@ -86,7 +86,8 @@ nav {
 .title {
     justify-self: start;
     align-self: self-end;
-    padding-left: 300px;
+    padding-left: 200px;
+    padding-bottom: 20px;
     font-size: 26px;
 }
 
@@ -141,10 +142,9 @@ nav {
 
 .container__addtask {
     border: 1px solid var(--border-primary);
-    width: 800px;
+    width: 600px;
     height: 200px;
     justify-self: center;
-    margin-top: 50px;
     padding: 20px;
     border-radius: 10px;
 }
@@ -152,26 +152,25 @@ nav {
 .section__input {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 100%;
     justify-content: center;
     gap: 10px;
     justify-content: flex-start;
 }
 
 .section__input-title {
-    background-color: var(--background-main);
-    border: 0;
     font-weight: bold;
+}
+
+.section__input-title,
+.section__input-descr {
+    background-color: transparent;
+    border: 0;
 }
 
 .section__input-title:focus,
 .section__input-descr:focus {
     outline: none;
-}
-
-.section__input-descr {
-    background-color: var(--background-main);
-    border: 0;
 }
 
 .section__input-attr {

@@ -11,7 +11,10 @@ class DOMHandler {
 
     showNewTaskForm() {
         const addTaskBtn = document.querySelector(".addtask-btn");
-        addTaskBtn.addEventListener("click", this.createNewTaskForm);
+        addTaskBtn.addEventListener("click", () => {
+            this.toggleElement("empty__state");
+            this.createNewTaskForm(document.querySelector(".main"));
+        });
     }
 
     createElement(tagName, className) {
@@ -24,10 +27,7 @@ class DOMHandler {
         document.querySelector(`.${className}`).classList.toggle("hidden");
     }
 
-    createNewTaskForm = () => {
-        //clear inital content
-        this.toggleElement("empty__state");
-
+    createNewTaskForm = (parent) => {
         //create new template
         const container = this.createElement("div", "container__addtask");
 
@@ -37,7 +37,7 @@ class DOMHandler {
         //attributes
         const inputAttributesSection = this.createInputAttrSection(inputSection);
 
-        document.querySelector(".main").append(container);
+        parent.append(container);
     }
 
     createInputSection(parent) {
@@ -100,6 +100,9 @@ class DOMHandler {
     }
 
     handleAddTaskModal() {
+        const modal = document.getElementById("modal");
+        this.createNewTaskForm(modal);
+
         const modalBtns = document.querySelectorAll("[data-modal-btn]");
         const overlay = document.getElementById("overlay");
 
@@ -118,7 +121,6 @@ class DOMHandler {
         modal.classList.toggle("active");
         overlay.classList.toggle("active");
     }
-
 }
 
 export const DomHandler = new DOMHandler();
