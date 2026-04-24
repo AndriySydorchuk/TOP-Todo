@@ -222,3 +222,59 @@ nav {
 .sidebar-newtask-btn:hover {
     background-color: var(--hover-nav-item);
 }
+
+.modal {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: .2s ease-in-out;
+    border: var(--border-primary);
+    background-color: var(--background-sidebar);
+    color: #fff;
+    border-radius: 10px;
+    z-index: 10;
+    padding: 20px 36px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08), 0 15px 50px rgba(0, 0, 0, .6);
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-header .title {
+    justify-self: start;
+    align-self: self-start;
+    padding: 0;
+    font-size: 26px;
+}
+
+.close-btn {
+    color: #fff;
+    background-color: var(--background-main);
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}

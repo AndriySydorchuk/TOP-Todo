@@ -98,6 +98,27 @@ class DOMHandler {
     switchNavTab() {
 
     }
+
+    handleAddTaskModal() {
+        const modalBtns = document.querySelectorAll("[data-modal-btn]");
+        const overlay = document.getElementById("overlay");
+
+        modalBtns.forEach(btn => {
+            btn.addEventListener("click", () => this.toggleModal());
+        });
+
+        overlay.addEventListener("click", () => this.toggleModal());
+    }
+
+    toggleModal() {
+        const modal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
+
+        if (modal == null) return;
+        modal.classList.toggle("active");
+        overlay.classList.toggle("active");
+    }
+
 }
 
 export const DomHandler = new DOMHandler();
