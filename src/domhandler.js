@@ -73,6 +73,31 @@ class DOMHandler {
         attr.innerHTML = `${icon}${text}`;
         parent.append(attr);
     }
+
+    handleNavTabs() {
+        const tabs = document.querySelectorAll('[class*="list-item"]');
+        const projectsTab = document.querySelector(".projects__list-title");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(tab => tab.classList.remove("list-item-active"));
+                projectsTab.classList.remove("list-item-active");
+
+                tab.classList.add("list-item-active");
+                //show tab content
+            })
+        })
+
+        projectsTab.addEventListener("click", () => {
+            tabs.forEach(tab => tab.classList.remove("list-item-active"));
+            projectsTab.classList.add("list-item-active");
+        })
+
+    }
+
+    switchNavTab() {
+
+    }
 }
 
 export const DomHandler = new DOMHandler();
