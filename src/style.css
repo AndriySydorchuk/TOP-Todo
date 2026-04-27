@@ -197,6 +197,48 @@ nav {
     cursor: pointer;
 }
 
+.section__input-attr.priority {
+    position: relative;
+}
+
+.priority-dropdown {
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    left: -10px;
+    border: 1px solid var(--border-primary);
+    width: 100px;
+    border-radius: 10px;
+    background-color: var(--background-sidebar);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.54);
+}
+
+.priority-dropdown-option {
+    cursor: pointer;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.priority-dropdown-option svg {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+}
+
+.priority-dropdown-option:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.priority-dropdown-option:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.priority-dropdown-option:hover {
+    background-color: var(--hover-btn-secondary);
+}
+
 .section__input-attr.date:hover,
 .section__input-attr.priority:hover {
     background-color: var(--hover-btn-secondary);

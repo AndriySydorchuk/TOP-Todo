@@ -81,11 +81,34 @@ class DOMHandler {
 
         const priority = this.createElement("span", "section__input-attr priority", `${Icons.priorityMain}Priority`);
 
+        const priorityDropdown = this.createElement("div", "priority-dropdown hidden");
+
+        Icons.priorities.forEach((val, index) => {
+            this.createPriorityOption(index, priorityDropdown);
+        })
+
+        priority.append(priorityDropdown);
+
+        priority.addEventListener("click", (e) => {
+            e.stopPropagation();
+            priorityDropdown.classList.remove("hidden");
+            document.body.addEventListener("click", (e) => {
+                e.stopPropagation();
+                priorityDropdown.classList.add("hidden");
+            })
+        })
+
         inputAttrSection.append(priority);
 
         parent.append(inputAttrSection);
 
         return inputAttrSection;
+    }
+
+    createPriorityOption(idx, parent) {
+        const option = this.createElement("a", "priority-dropdown-option", `${Icons.priorities[idx]}Priority ${idx + 1}`);
+        parent.append(option);
+        return option;
     }
 
     createAttr(className, icon, text, parent) {
