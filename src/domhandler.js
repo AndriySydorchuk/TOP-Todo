@@ -17,9 +17,10 @@ class DOMHandler {
         });
     }
 
-    createElement(tagName, className) {
+    createElement(tagName, className = "", innerHtml = "") {
         const newEl = document.createElement(tagName);
         newEl.classList.add(...className.split(" "));
+        newEl.innerHTML = innerHtml;
         return newEl;
     }
 
@@ -59,8 +60,7 @@ class DOMHandler {
     createInputAttrSection(parent) {
         const inputAttrSection = this.createElement("div", "section__input-attr");
 
-        const date = this.createElement("span", "section__input-attr date");
-        date.innerHTML = `${Icons.calendar}Date`;
+        const date = this.createElement("span", "section__input-attr date", `${Icons.calendar}Date`);
 
         const dateInput = this.createElement("input", "section__input-attr date-input");
         dateInput.type = "date";
@@ -79,7 +79,9 @@ class DOMHandler {
 
         inputAttrSection.append(date);
 
-        const priority = this.createAttr("priority", Icons.priority, "Priority", inputAttrSection);
+        const priority = this.createElement("span", "section__input-attr priority", `${Icons.priorityMain}Priority`);
+
+        inputAttrSection.append(priority);
 
         parent.append(inputAttrSection);
 
@@ -87,8 +89,7 @@ class DOMHandler {
     }
 
     createAttr(className, icon, text, parent) {
-        const attr = this.createElement("span", `section__input-attr ${className}`);
-        attr.innerHTML = `${icon}${text}`;
+        const attr = this.createElement("span", `section__input-attr ${className}`, `${icon}${text}`);
         parent.append(attr);
     }
 
