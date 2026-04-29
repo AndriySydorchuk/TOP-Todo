@@ -1,6 +1,20 @@
 import "./style.css";
-import { DomHandler } from './domhandler.js';
+import { addTaskForm } from "./addtaskform";
+import { addTaskModal } from './modal';
+import { handleNavTabs } from './navtabs';
+import { toggleElementByClass } from './domhelper';
 
-DomHandler.showNewTaskForm();
-DomHandler.handleNavTabs();
-DomHandler.handleAddTaskModal();
+document.addEventListener("DOMContentLoaded", () => {
+    handleNavTabs();
+
+    const addTaskBtn = document.querySelector(".addtask-btn");
+    addTaskBtn.addEventListener("click", () => {
+        toggleElementByClass("empty-state");
+
+        const main = document.querySelector(".main");
+        addTaskForm(main);
+    })
+
+    const sidebarAddTaskBtn = document.querySelector(".sidebar-newtask-btn");
+    sidebarAddTaskBtn.addEventListener("click", () => addTaskModal())
+})

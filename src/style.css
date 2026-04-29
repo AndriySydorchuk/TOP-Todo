@@ -5,6 +5,7 @@
 
     --hover-btn: #d05f63;
     --hover-btn-secondary: #363636;
+    --hover-btn-tertiary: #555;
     --hover-nav-item: #7746403d;
 
     --selected-item-font: #f07f75;
@@ -44,8 +45,8 @@ nav {
     padding: 10px 10px 0 15px;
 }
 
-.nav__list-item,
-.projects__list-item {
+.nav-list-item,
+.projects-list-item {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -55,18 +56,18 @@ nav {
 }
 
 
-.nav__list-item svg {
+.nav-list-item svg {
     width: 25px;
     height: auto;
 }
 
-.nav__list-item:hover,
-.projects__list-item:hover,
-.projects__list-title:hover {
+.nav-list-item:hover,
+.projects-list-item:hover,
+.projects-list-title:hover {
     background-color: var(--hover-nav-item);
 }
 
-.projects__list-title {
+.projects-list-title {
     margin-top: 20px;
     font-weight: bold;
     font-size: 16px;
@@ -91,7 +92,7 @@ nav {
     font-size: 26px;
 }
 
-.empty__state {
+.empty-state {
     padding-top: 100px;
     display: flex;
     flex-direction: column;
@@ -100,11 +101,11 @@ nav {
     align-items: center;
 }
 
-.empty__state img {
+.empty-state img {
     margin-bottom: 15px;
 }
 
-.empty__state-actions {
+.empty-state-actions {
     font-weight: normal;
     color: #ccc;
     display: flex;
@@ -140,7 +141,7 @@ nav {
     background-color: var(--hover-btn);
 }
 
-.container__addtask {
+.taskform {
     border: 1px solid var(--border-primary);
     width: 600px;
     height: 200px;
@@ -149,7 +150,7 @@ nav {
     border-radius: 10px;
 }
 
-.section__input {
+.taskform-input {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -158,22 +159,22 @@ nav {
     justify-content: flex-start;
 }
 
-.section__input-title {
+.taskform-input .title-input {
     font-weight: bold;
 }
 
-.section__input-title,
-.section__input-descr {
+.taskform-input .title-input,
+.taskform-input .descr-input {
     background-color: transparent;
     border: 0;
 }
 
-.section__input-title:focus,
-.section__input-descr:focus {
+.taskform-input .title-input:focus,
+.taskform-input .descr-input:focus {
     outline: none;
 }
 
-.section__input-attr {
+.taskform-attr {
     align-self: start;
     margin-top: 5px;
     display: flex;
@@ -181,12 +182,8 @@ nav {
     gap: 20px;
 }
 
-.hidden {
-    display: none;
-}
-
-.section__input-attr.date,
-.section__input-attr.priority {
+.taskform-attr .date,
+.taskform-attr .priority {
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -197,7 +194,7 @@ nav {
     cursor: pointer;
 }
 
-.section__input-attr.priority {
+.taskform-attr .priority {
     position: relative;
 }
 
@@ -239,8 +236,8 @@ nav {
     background-color: var(--hover-btn-secondary);
 }
 
-.section__input-attr.date:hover,
-.section__input-attr.priority:hover {
+.taskform-attr .date:hover,
+.taskform-attr .priority:hover {
     background-color: var(--hover-btn-secondary);
 }
 
@@ -320,13 +317,13 @@ nav {
     pointer-events: all;
 }
 
-.section__input-attr.date {
+.taskform-attr .date {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.section__input-attr.date-input {
+.taskform-attr .date-input {
     background-color: transparent;
     border: 1px solid var(--border-primary);
     border-radius: 5px;
@@ -335,8 +332,28 @@ nav {
     position: absolute;
     bottom: -30px;
     left: -10px;
+    display: inline-block;
 }
 
-.section__input-attr.date-input::-webkit-calendar-picker-indicator {
+.taskform-attr .date-input::-webkit-calendar-picker-indicator {
     filter: invert(0.5);
+}
+
+.date-input.hidden {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.remove-date-btn {
+    cursor: pointer;
+    height: 17px;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.remove-date-btn:hover {
+    background-color: var(--hover-btn-tertiary);
 }
