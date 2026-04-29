@@ -346,14 +346,3 @@ nav {
 .hidden {
     display: none;
 }
-
-.remove-date-btn {
-    cursor: pointer;
-    height: 17px;
-    border-radius: 3px;
-    padding: 2px;
-}
-
-.remove-date-btn:hover {
-    background-color: var(--hover-btn-tertiary);
-}

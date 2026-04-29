@@ -1,5 +1,4 @@
 import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass } from './domhelper.js';
-import { Icons } from "./icons.js";
 
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform");
@@ -46,33 +45,23 @@ function createTaskAttr() {
         let day = selectedDate.split(" ")[2];
         if (day.startsWith("0")) day.slice(1);
 
-        dateAttr.innerHTML = `${Icons.calendar}${day} ${month}`;
-
-        const removeDateBtn = createElement("span", "remove-date-btn");
-        removeDateBtn.innerHTML = Icons.x;
-        removeDateBtn.addEventListener("click", () => {
-            dateInput.value = "";
-            dateAttr.innerHTML = `${Icons.calendar}Date`;
-        });
-
-        dateAttr.append(removeDateBtn);
+        dateAttr.textContent = `${day} ${month}`;
     })
-
 
     attrSection.append(dateAttr);
 
     //priority
     const priorityAttr = createElement("span", "priority");
-    priorityAttr.innerHTML = `${Icons.priorityMain}Priority`;
+    priorityAttr.textContent = "Priority";
 
     const priorityDropdown = createElement("div", "priority-dropdown hidden");
 
-    Icons.priorities.forEach((priorityIcon, index) => {
+    for (let i = 0; i < 4; i++) {
         const priorityOption = createElement("a", "priority-dropdown-option");
-        priorityOption.innerHTML = `${Icons.priorities[index]}Priority ${index++}`;
+        priorityOption.textContent = `Priority ${i}`;
 
         priorityDropdown.append(priorityOption);
-    })
+    }
 
     priorityAttr.append(priorityDropdown);
 
