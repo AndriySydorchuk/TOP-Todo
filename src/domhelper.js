@@ -1,6 +1,8 @@
-export function createElement(tagName, className = "") {
+export function createElement(tagName, className, parent, textContent = "") {
     const newElement = document.createElement(tagName);
     newElement.classList.add(...className.split(" "));
+    newElement.textContent = textContent;
+    parent.append(newElement);
 
     return newElement;
 }
