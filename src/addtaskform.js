@@ -56,16 +56,26 @@ function createTaskAttr(parent) {
     })
 
     //priority
-    const priorityAttr = createElement("span", "priority", attrSection, "Priority");
+    const priorityAttr = createElement("span", "priority", attrSection);
+
+    const priorityText = createElement("span", "priority-text", priorityAttr, "Priority");
 
     const priorityDropdown = createElement("div", "priority-dropdown hidden", priorityAttr);
 
     //magic number
     for (let i = 0; i < 4; i++) {
-        const priorityOption = createElement("a", "priority-dropdown-option", priorityDropdown, `Priority ${i}`);
+        const priorityOption = createElement("a", "priority-dropdown-option", priorityDropdown, `Priority ${i + 1}`);
     }
 
     openOnClick(priorityAttr, priorityDropdown);
     closeOnOutsideClick(priorityDropdown);
+
+    priorityDropdown.childNodes.forEach(option => {
+        option.addEventListener("click", (event) => {
+            event.stopPropagation();
+            priorityText.textContent = option.textContent;
+            hideElement(priorityDropdown);
+        })
+    })
 }
 
