@@ -111,4 +111,9 @@ function createTaskActions(parent) {
     projectsIconSecondary.innerHTML = Icons.triangleDown;
 
     //buttons
+    const actionBtnsContainer = createElement("div", "action-btns-container", parent);
+
+    const cancelBtn = createElement("button", "cancel-btn", actionBtnsContainer, "Cancel");
+
+    const addBtn = createElement("button", "add-btn", actionBtnsContainer, "Add task");
 }

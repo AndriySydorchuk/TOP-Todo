@@ -144,7 +144,7 @@ nav {
 .taskform {
     border: 1px solid var(--border-primary);
     width: 600px;
-    height: 200px;
+    height: fit-content;
     justify-self: center;
     padding: 20px;
     border-radius: 10px;
@@ -371,6 +371,8 @@ nav {
     border-top: 1px solid var(--border-primary);
     margin-top: 10px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .taskform-actions-section .projects {
@@ -398,6 +400,36 @@ nav {
 
 .taskform-actions-section .projects-icon-secondary {
     height: 14px;
+}
+
+.action-btns-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.action-btns-container .cancel-btn {
+    background-color: var(--background-sidebar);
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-btns-container .cancel-btn:hover {
+    background-color: var(--hover-btn-secondary);
+}
+
+.action-btns-container .add-btn {
+    background-color: var(--background-btn);
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-btns-container .add-btn:hover {
+    background-color: var(--hover-btn);
 }
 
 .hidden {
