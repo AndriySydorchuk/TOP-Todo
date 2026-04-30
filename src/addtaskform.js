@@ -1,4 +1,4 @@
-import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement } from './domhelper.js';
+import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement, showElement } from './domhelper.js';
 
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform", parent);
@@ -31,14 +31,28 @@ function createTaskAttr(parent) {
     openOnClick(dateAttr, dateInput);
     closeOnOutsideClick(dateInput);
 
+    const removeDateBtn = createElement("button", "removedate-btn hidden", dateAttr, "x");
+    removeDateBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        dateInput.value = "";
+        dateText.textContent = "Date";
+
+        hideElement(removeDateBtn);
+    })
+
     dateInput.addEventListener("change", () => {
+        if (!dateInput.value) return;
+
         const selectedDate = dateInput.valueAsDate.toString();
         const month = selectedDate.split(" ")[1];
         let day = selectedDate.split(" ")[2];
         if (day.startsWith("0")) day = day.slice(1);
 
         dateText.textContent = `${day} ${month}`;
+
         hideElement(dateInput);
+        showElement(removeDateBtn);
     })
 
     //priority

@@ -343,6 +343,23 @@ nav {
     display: none;
 }
 
+.removedate-btn {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    line-height: 1;
+    border-radius: 2px;
+    margin-left: 3px;
+}
+
+.removedate-btn:hover {
+    background-color: var(--hover-btn-tertiary);
+}
+
 .hidden {
     display: none;
 }
