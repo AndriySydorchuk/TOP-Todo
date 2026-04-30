@@ -367,6 +367,39 @@ nav {
     background-color: var(--hover-btn-tertiary);
 }
 
+.taskform-actions-section {
+    border-top: 1px solid var(--border-primary);
+    margin-top: 10px;
+    display: flex;
+}
+
+.taskform-actions-section .projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    line-height: 1;
+    font-size: 14px;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+
+.taskform-actions-section .projects:hover {
+    background-color: var(--hover-btn-secondary);
+}
+
+.taskform-actions-section .projects-icon {
+    height: 14px;
+}
+
+.taskform-actions-section .projects-text {}
+
+.taskform-actions-section .projects-icon-secondary {
+    height: 14px;
+}
+
 .hidden {
     display: none;
 }

@@ -4,8 +4,13 @@ import { Icons } from './icons.js';
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform", parent);
 
-    createTaskInput(taskform);
-    createTaskAttr(taskform);
+    const taskformInput = createElement("div", "taskform-input-section", taskform);
+    const taskformActions = createElement("div", "taskform-actions-section", taskform);
+
+    createTaskInput(taskformInput);
+    createTaskAttr(taskformInput);
+
+    createTaskActions(taskformActions);
 }
 
 function createTaskInput(parent) {
@@ -93,3 +98,17 @@ function createTaskAttr(parent) {
     })
 }
 
+function createTaskActions(parent) {
+    //projects
+    const projects = createElement("div", "projects", parent);
+
+    const projectsIcon = createElement("span", "projects-icon", projects);
+    projectsIcon.innerHTML = Icons.inbox;
+
+    const projectsText = createElement("span", "projects-text", projects, "Inbox");
+
+    const projectsIconSecondary = createElement("span", "projects-icon-secondary", projects);
+    projectsIconSecondary.innerHTML = Icons.triangleDown;
+
+    //buttons
+}
