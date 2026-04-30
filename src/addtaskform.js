@@ -1,4 +1,5 @@
 import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement, showElement } from './domhelper.js';
+import { Icons } from './icons.js';
 
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform", parent);
@@ -22,6 +23,9 @@ function createTaskAttr(parent) {
 
     //date
     const dateAttr = createElement("div", "date", attrSection);
+
+    const dateIcon = createElement("span", "date-icon", dateAttr);
+    dateIcon.innerHTML = Icons.calendar;
 
     const dateText = createElement("span", "date-text", dateAttr, "Date");
 
@@ -58,14 +62,21 @@ function createTaskAttr(parent) {
     //priority
     const priorityAttr = createElement("span", "priority", attrSection);
 
+    const priorityIcon = createElement("span", "priority-icon", priorityAttr);
+    priorityIcon.innerHTML = Icons.priorityMain;
+
     const priorityText = createElement("span", "priority-text", priorityAttr, "Priority");
 
     const priorityDropdown = createElement("div", "priority-dropdown hidden", priorityAttr);
 
-    //magic number
-    for (let i = 0; i < 4; i++) {
-        const priorityOption = createElement("a", "priority-dropdown-option", priorityDropdown, `Priority ${i + 1}`);
-    }
+    Icons.priorities.forEach((priorityIcon, index) => {
+        const priorityOption = createElement("a", "priority-dropdown-option", priorityDropdown);
+
+        const priorityOptionIcon = createElement("span", "priority-option-icon", priorityOption);
+        priorityOptionIcon.innerHTML = priorityIcon;
+
+        const priorityOptionText = createElement("span", "priority-option-text", priorityOption, `Priority ${index + 1}`);
+    })
 
     openOnClick(priorityAttr, priorityDropdown);
     closeOnOutsideClick(priorityDropdown);
@@ -73,7 +84,10 @@ function createTaskAttr(parent) {
     priorityDropdown.childNodes.forEach(option => {
         option.addEventListener("click", (event) => {
             event.stopPropagation();
-            priorityText.textContent = option.textContent;
+
+            priorityIcon.innerHTML = option.firstElementChild.innerHTML;
+            priorityText.textContent = option.lastElementChild.textContent;
+
             hideElement(priorityDropdown);
         })
     })

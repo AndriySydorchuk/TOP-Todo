@@ -323,6 +323,13 @@ nav {
     position: relative;
 }
 
+.taskform-attr .date-icon,
+.taskform-attr .priority-icon {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
 .taskform-attr .date-input {
     background-color: transparent;
     border: 1px solid var(--border-primary);
