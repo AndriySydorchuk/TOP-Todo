@@ -7,6 +7,18 @@ export function createElement(tagName, className, parent, textContent = "") {
     return newElement;
 }
 
+export function showElement(element) {
+    if (element.classList.contains("hidden")) {
+        element.classList.remove("hidden");
+    }
+}
+
+export function hideElement(element) {
+    if (!element.classList.contains("hidden")) {
+        element.classList.add("hidden");
+    }
+}
+
 export function toggleElement(element) {
     element.classList.toggle("hidden");
 }
@@ -20,14 +32,14 @@ export function openOnClick(targetElement, elementToOpen) {
     targetElement.addEventListener("click", (event) => {
         event.stopPropagation();
 
-        toggleElement(elementToOpen);
+        showElement(elementToOpen);
     })
 }
 
 export function closeOnOutsideClick(element) {
     document.body.addEventListener("click", (event) => {
         if (!element.classList.contains("hidden")) {
-            toggleElement(element);
+            hideElement(element);
         }
     })
 }
