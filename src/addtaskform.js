@@ -1,4 +1,4 @@
-import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass } from './domhelper.js';
+import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement } from './domhelper.js';
 
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform", parent);
@@ -38,7 +38,7 @@ function createTaskAttr(parent) {
         if (day.startsWith("0")) day = day.slice(1);
 
         dateText.textContent = `${day} ${month}`;
-        dateInput.classList.toggle("hidden");
+        hideElement(dateInput);
     })
 
     //priority
