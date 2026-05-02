@@ -13,7 +13,7 @@ function addTaskModal() {
     toggleModal();
 }
 
-function toggleModal() {
+export function toggleModal() {
     const modal = document.getElementById("modal")
     const overlay = document.getElementById("overlay");
 
