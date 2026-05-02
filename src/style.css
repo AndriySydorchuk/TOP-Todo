@@ -436,6 +436,11 @@ nav {
     background-color: var(--hover-btn);
 }
 
+.action-btns-container .add-btn.disabled {
+    background-color: #4c2827;
+    cursor: not-allowed;
+}
+
 .hidden {
     display: none;
 }
