@@ -1,6 +1,15 @@
 import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement, showElement } from './domhelper.js';
 import { Icons } from './icons.js';
 
+export function handleTaskForm() {
+    const addTaskBtn = document.querySelector(".addtask-btn");
+
+    addTaskBtn.addEventListener("click", () => {
+        toggleElementByClass("empty-state");
+        addTaskForm(document.querySelector(".main"));
+    })
+}
+
 export function addTaskForm(parent) {
     const taskform = createElement("div", "taskform", parent);
 
