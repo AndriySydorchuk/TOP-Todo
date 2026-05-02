@@ -126,7 +126,55 @@ function createTaskActions(parent) {
     const cancelBtn = createElement("button", "cancel-btn", actionBtnsContainer, "Cancel");
     handleCancelBtn();
 
-    const addBtn = createElement("button", "add-btn", actionBtnsContainer, "Add task");
+    const addBtn = createElement("button", "add-btn disabled", actionBtnsContainer, "Add task");
+    addBtn.disabled = true;
+    handleAddBtn();
+}
+
+function handleAddBtn() {
+    //add btn is disabled by default
+    //after user eneters all required fields it gets enabled
+
+    const addBtn = document.querySelector(".add-btn");
+
+    const titleInput = document.querySelector(".title-input");
+    if (!titleInput) return;
+
+    titleInput.addEventListener("input", (e) => {
+        const hasTitle = titleInput.value !== "";
+
+        addBtn.classList.toggle("disabled", !hasTitle);
+        addBtn.disabled = !hasTitle;
+    })
+
+    //create task
+    addBtn.addEventListener("click", (e) => {
+        //get inputs data
+        const formState = getTaskFormState();
+
+        //store
+        console.table(formState);
+    });
+}
+
+function getTaskFormState() {
+    const titleInput = document.querySelector(".title-input");
+    const descrInput = document.querySelector(".descr-input");
+
+    const dateInput = document.querySelector(".date-input");
+    const priorityInput = document.querySelector(".priority-text");
+    let priorityValue = priorityInput.textContent === "Priority" ? "" : priorityInput.textContent;
+
+    const projectsInput = document.querySelector(".projects-text");
+
+    return {
+        title: titleInput.value,
+        descr: descrInput.value,
+        date: dateInput.value,
+        priority: priorityValue,
+        projects: projectsInput.textContent,
+    }
+
 }
 
 function handleCancelBtn() {
@@ -134,6 +182,7 @@ function handleCancelBtn() {
     if (!cancelBtn) return;
 
     cancelBtn.addEventListener("click", (e) => {
+        const emptyStateElement = document.querySelector(".empty-state");
         const emptyStateHidden = emptyStateElement.classList.contains("hidden");
 
         const taskform = document.querySelector(".taskform");
