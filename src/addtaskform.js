@@ -1,5 +1,6 @@
 import { closeOnOutsideClick, createElement, openOnClick, toggleElement, toggleElementByClass, hideElement, showElement } from './domhelper.js';
 import { Icons } from './icons.js';
+import { toggleModal } from './modal.js';
 
 export function handleTaskForm() {
     const addTaskBtn = document.querySelector(".addtask-btn");
@@ -123,6 +124,24 @@ function createTaskActions(parent) {
     const actionBtnsContainer = createElement("div", "action-btns-container", parent);
 
     const cancelBtn = createElement("button", "cancel-btn", actionBtnsContainer, "Cancel");
+    handleCancelBtn();
 
     const addBtn = createElement("button", "add-btn", actionBtnsContainer, "Add task");
+}
+
+function handleCancelBtn() {
+    const cancelBtn = document.querySelector(".cancel-btn");
+    if (!cancelBtn) return;
+
+    cancelBtn.addEventListener("click", (e) => {
+        const emptyStateHidden = emptyStateElement.classList.contains("hidden");
+
+        const taskform = document.querySelector(".taskform");
+        if (emptyStateHidden) {
+            toggleElementByClass("empty-state");
+        } else {
+            toggleModal();
+        }
+        taskform.remove();
+    })
 }
