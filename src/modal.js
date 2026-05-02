@@ -1,15 +1,16 @@
 import { addTaskForm } from "./addtaskform.js"
+import { toggleElement } from './domhelper.js';
 
-export function addTaskModal() {
+function addTaskModal() {
     const modal = document.getElementById("modal");
-    addTaskForm(modal);
 
-    const modalBtns = document.querySelectorAll("[data-modal-btn]");
-    const overlay = document.getElementById("overlay");
+    if (!modal) return;
 
-    modalBtns.forEach((btn) => {
-        btn.addEventListener("click", () => toggleModal())
-    })
+    if (!modal.querySelector(".taskform")) {
+        addTaskForm(modal);
+    }
+
+    toggleModal();
 }
 
 function toggleModal() {
@@ -20,4 +21,16 @@ function toggleModal() {
 
     modal.classList.toggle("active");
     overlay.classList.toggle("active");
+}
+
+export function handleModal() {
+    const sidebarAddTaskBtn = document.querySelector(".sidebar-newtask-btn");
+    sidebarAddTaskBtn.addEventListener("click", () => {
+        addTaskModal();
+    })
+
+    const overlay = document.getElementById("overlay");
+    overlay.addEventListener("click", () => {
+        toggleModal();
+    })
 }
